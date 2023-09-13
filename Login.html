@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="card">
+        <form name="loginForm">
+            <h2 class="head">Login</h2>
+            <label>Email</label>
+            <input class="input" placeholder="Enter your email" type="email" name="email" id="email">
+            <label>Password</label>
+            <input class="input" placeholder="Enter your password" type="password" id="password">
+            <input type="submit" onclick="validateLogin()" value="Login">
+            <a href="Register.html">New user? Click Here to Register</a>
+        </form>
+    </div>
+    <script>
+        function validateLogin() {
+            var email = loginForm.email.value;
+            var password = loginForm.password.value;
+
+            if (email.length == 0 || password.length == 0) {
+                alert("Both email and password fields are required");
+            } else if (!isValidEmail(email)) {
+                alert("Invalid email format");
+            } else if (password.length < 8) {
+                alert("Password should be at least 8 characters long");
+            } else {
+                alert("Login successful!");
+            }
+        }
+
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>

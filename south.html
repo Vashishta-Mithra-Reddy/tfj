@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="order.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+        <script>
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            function addToCart(itemName, itemDescription, itemPrice) {
+                cart.push({ name: itemName, description: itemDescription, price: itemPrice });
+    
+                const notification = document.querySelector('.notification');
+                notification.textContent = `Added ${itemName} to the cart!`;
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                notification.classList.remove('show');
+                }, 3000);
+    
+                localStorage.setItem('cart', JSON.stringify(cart));   
+            }
+    
+            function navigateToCart() {
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.href = 'cart.html';
+            }
+        </script>
+    
+    </head>
+    
+    <body>
+        <div class="maincard">
+            <div class="header">
+            <h2 class="heading">
+                The<br>
+                Southern<br>
+                Cuisine.<br>
+            </h2>
+            </div>
+            <div class="notification"></div>
+
+            <div class="food">
+                <div class="menu">
+                    <a href="#starters">Starters</a>
+                    <a href="#main-course">Main Course</a>
+                    <a href="#desserts">Desserts</a>
+                </div>
+            
+                <div class="contain">
+                    <!-- Starters Section -->
+                    <div class="menu-section" id="starters">
+                        <h1>Starters</h1>
+                        <!-- Masala Dosa -->
+                        <div class="items">
+                            <img src="Graphics/South/masala-dosa.png" loading="lazy">
+                            <p class="food-title">Masala Dosa</p>
+                            <p class="food-description">A famous South Indian crispy rice and lentil crepe filled with spiced potato mixture</p>
+                            <button class="select" onclick="addToCart('Masala Dosa', 'A famous South Indian crispy rice and lentil crepe filled with spiced potato mixture', '₹60')">₹60 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Idli -->
+                        <div class="items">
+                            <img src="Graphics/South/idli.png" loading="lazy">
+                            <p class="food-title">Idli</p>
+                            <p class="food-description">Soft and fluffy steamed rice cakes, served with coconut chutney and sambar</p>
+                            <button class="select" onclick="addToCart('Idli', 'Soft and fluffy steamed rice cakes, served with coconut chutney and sambar', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Vada -->
+                        <div class="items">
+                            <img src="Graphics/South/vada.png" loading="lazy">
+                            <p class="food-title">Vada</p>
+                            <p class="food-description">Crispy deep-fried lentil fritters, served with coconut chutney and sambar</p>
+                            <button class="select" onclick="addToCart('Vada', 'Crispy deep-fried lentil fritters, served with coconut chutney and sambar', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Medu Vada -->
+                        <div class="items">
+                            <img src="Graphics/South/medu-vada.png" loading="lazy">
+                            <p class="food-title">Medu Vada</p>
+                            <p class="food-description">Larger, donut-shaped lentil fritters, served with coconut chutney and sambar</p>
+                            <button class="select" onclick="addToCart('Medu Vada', 'Larger, donut-shaped lentil fritters, served with coconut chutney and sambar', '₹55')">₹55 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Bonda -->
+                        <div class="items">
+                            <img src="Graphics/South/bonda.png" loading="lazy">
+                            <p class="food-title">Bonda</p>
+                            <p class="food-description">Deep-fried potato or lentil dumplings, a popular tea-time snack</p>
+                            <button class="select" onclick="addToCart('Bonda', 'Deep-fried potato or lentil dumplings, a popular tea-time snack', '₹45')">₹45 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Uttapam -->
+                        <div class="items">
+                            <img src="Graphics/South/uttapam.png" loading="lazy">
+                            <p class="food-title">Uttapam</p>
+                            <p class="food-description">Thick savory pancakes made from fermented rice and lentil batter, often topped with vegetables</p>
+                            <button class="select" onclick="addToCart('Uttapam', 'Thick savory pancakes made from fermented rice and lentil batter, often topped with vegetables', '₹60')">₹60 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Paneer Tikka -->
+                        <div class="items">
+                            <img src="Graphics/Northern/paneer-tikka.png" loading="lazy">
+                            <p class="food-title">Paneer Tikka</p>
+                            <p class="food-description">Marinated and grilled cubes of paneer (Indian cottage cheese) with spices and yogurt</p>
+                            <button class="select" onclick="addToCart('Paneer Tikka', 'Marinated and grilled cubes of paneer (Indian cottage cheese) with spices and yogurt', '₹70')">₹70 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Chicken 65 -->
+                        <div class="items">
+                            <img src="Graphics/South/chicken-65.png" loading="lazy">
+                            <p class="food-title">Chicken 65</p>
+                            <p class="food-description">A spicy and tangy deep-fried chicken dish, a popular non-vegetarian starter</p>
+                            <button class="select" onclick="addToCart('Chicken 65', 'A spicy and tangy deep-fried chicken dish, a popular non-vegetarian starter', '₹70')">₹70 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Fish Curry -->
+                        <div class="items">
+                            <img src="Graphics/South/fish-curry.png" loading="lazy">
+                            <p class="food-title">Fish Curry</p>
+                            <p class="food-description">South Indian-style fish curry, often served as an appetizer or main course with rice</p>
+                            <button class="select" onclick="addToCart('Fish Curry', 'South Indian-style fish curry, often served as an appetizer or main course with rice', '₹60')">₹60 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Gobi Manchurian -->
+                        <div class="items">
+                            <img src="Graphics/South/gobi-manchurian.png" loading="lazy">
+                            <p class="food-title">Gobi Manchurian</p>
+                            <p class="food-description">Fried cauliflower florets tossed in a spicy and tangy sauce, an Indo-Chinese fusion dish</p>
+                            <button class="select" onclick="addToCart('Gobi Manchurian', 'Fried cauliflower florets tossed in a spicy and tangy sauce, an Indo-Chinese fusion dish', '₹55')">₹55 | Add To Cart</button>
+                        </div>
+                    </div>
+            
+                    <!-- Main Course Section -->
+                    <div class="menu-section" id="main-course">
+                        <h1>Main Course</h1>
+                        <!-- Sambhar -->
+                        <div class="items">
+                            <img src="Graphics/South/sambhar.png" loading="lazy">
+                            <p class="food-title">Sambhar</p>
+                            <p class="food-description">A tangy and spicy lentil stew with vegetables, served with rice, idli, or dosa</p>
+                            <button class="select" onclick="addToCart('Sambhar', 'A tangy and spicy lentil stew with vegetables, served with rice, idli, or dosa', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Rasam -->
+                        <div class="items">
+                            <img src="Graphics/South/rasam.png" loading="lazy">
+                            <p class="food-title">Rasam</p>
+                            <p class="food-description">A flavorful tamarind and tomato soup, often served with rice</p>
+                            <button class="select" onclick="addToCart('Rasam', 'A flavorful tamarind and tomato soup, often served with rice', '₹40')">₹40 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Curd Rice -->
+                        <div class="items">
+                            <img src="Graphics/South/curd-rice.png" loading="lazy">
+                            <p class="food-title">Curd Rice (Thayir Sadam)</p>
+                            <p class="food-description">Rice mixed with yogurt and tempered with spices, a soothing and simple dish</p>
+                            <button class="select" onclick="addToCart('Curd Rice', 'Rice mixed with yogurt and tempered with spices, a soothing and simple dish', '₹40')">₹40 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Chicken Curry -->
+                        <div class="items">
+                            <img src="Graphics/South/chicken-curry.png" loading="lazy">
+                            <p class="food-title">Chicken Curry</p>
+                            <p class="food-description">A rich and spicy chicken curry, a staple in South Indian non-vegetarian cuisine</p>
+                            <button class="select" onclick="addToCart('Chicken Curry', 'A rich and spicy chicken curry, a staple in South Indian non-vegetarian cuisine', '₹70')">₹70 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Chettinad Chicken -->
+                        <div class="items">
+                            <img src="Graphics/South/chettinad-chicken.png" loading="lazy">
+                            <p class="food-title">Chettinad Chicken</p>
+                            <p class="food-description">A spicy and aromatic chicken curry prepared with Chettinad spices</p>
+                            <button class="select" onclick="addToCart('Chettinad Chicken', 'A spicy and aromatic chicken curry prepared with Chettinad spices', '₹75')">₹75 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Avial -->
+                        <div class="items">
+                            <img src="Graphics/South/avial.png" loading="lazy">
+                            <p class="food-title">Avial</p>
+                            <p class="food-description">A mixed vegetable dish cooked with coconut and yogurt, often served with rice</p>
+                            <button class="select" onclick="addToCart('Avial', 'A mixed vegetable dish cooked with coconut and yogurt, often served with rice', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Lemon Rice -->
+                        <div class="items">
+                            <img src="Graphics/South/lemon-rice.png" loading="lazy">
+                            <p class="food-title">Lemon Rice</p>
+                            <p class="food-description">Tangy and flavorful rice dish with lemon juice, turmeric, and mustard seeds</p>
+                            <button class="select" onclick="addToCart('Lemon Rice', 'Tangy and flavorful rice dish with lemon juice, turmeric, and mustard seeds', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Biryani -->
+                        <div class="items">
+                            <img src="Graphics/South/biryani.png" loading="lazy">
+                            <p class="food-title">Biryani</p>
+                            <p class="food-description">Fragrant rice dish with marinated meat or vegetables and aromatic spices</p>
+                            <button class="select" onclick="addToCart('Biryani', 'Fragrant rice dish with marinated meat or vegetables and aromatic spices', '₹80')">₹80 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Pongal -->
+                        <div class="items">
+                            <img src="Graphics/South/pongal.png" loading="lazy">
+                            <p class="food-title">Pongal</p>
+                            <p class="food-description">A comforting dish made with rice and lentils, typically garnished with ghee, cashews, and black pepper</p>
+                            <button class="select" onclick="addToCart('Pongal', 'A comforting dish made with rice and lentils, typically garnished with ghee, cashews, and black pepper', '₹45')">₹45 | Add To Cart</button>
+                        </div>
+                    </div>
+            
+                    <!-- Desserts Section -->
+                    <div class="menu-section" id="desserts">
+                        <h1>Desserts</h1>
+                        <!-- Payasam -->
+                        <div class="items">
+                            <img src="Graphics/South/payasam.png" loading="lazy">
+                            <p class="food-title">Payasam</p>
+                            <p class="food-description">A creamy and sweet rice pudding flavored with cardamom and garnished with nuts and raisins</p>
+                            <button class="select" onclick="addToCart('Payasam', 'A creamy and sweet rice pudding flavored with cardamom and garnished with nuts and raisins', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Kheer -->
+                        <div class="items">
+                            <img src="Graphics/Northern/kheer.png" loading="lazy">
+                            <p class="food-title">Kheer</p>
+                            <p class="food-description">Rice pudding made with milk, sugar, and garnished with almonds and pistachios</p>
+                            <button class="select" onclick="addToCart('Kheer', 'Rice pudding made with milk, sugar, and garnished with almonds and pistachios', '₹40')">₹40 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Gulab Jamun -->
+                        <div class="items">
+                            <img src="Graphics/Northern/gulab-jamun.png" loading="lazy">
+                            <p class="food-title">Gulab Jamun</p>
+                            <p class="food-description">Deep-fried milk-based dumplings soaked in sugar syrup, a popular Indian dessert</p>
+                            <button class="select" onclick="addToCart('Gulab Jamun', 'Deep-fried milk-based dumplings soaked in sugar syrup, a popular Indian dessert', '₹35')">₹35 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Jalebi -->
+                        <div class="items">
+                            <img src="Graphics/Northern/jalebi.png" loading="lazy">
+                            <p class="food-title">Jalebi</p>
+                            <p class="food-description">Spiral-shaped deep-fried sweet pretzels soaked in sugar syrup, often enjoyed as a dessert</p>
+                            <button class="select" onclick="addToCart('Jalebi', 'Spiral-shaped deep-fried sweet pretzels soaked in sugar syrup, often enjoyed as a dessert', '₹30')">₹30 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Mysore Pak -->
+                        <div class="items">
+                            <img src="Graphics/South/mysore-pak.png" loading="lazy">
+                            <p class="food-title">Mysore Pak</p>
+                            <p class="food-description">A rich and sweet fudge made from gram flour, ghee, and sugar</p>
+                            <button class="select" onclick="addToCart('Mysore Pak', 'A rich and sweet fudge made from gram flour, ghee, and sugar', '₹40')">₹40 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Badusha -->
+                        <div class="items">
+                            <img src="Graphics/South/badusha.png" loading="lazy">
+                            <p class="food-title">Badusha</p>
+                            <p class="food-description">Flaky and sweet fried dough soaked in sugar syrup, similar to a glazed donut</p>
+                            <button class="select" onclick="addToCart('Badusha', 'Flaky and sweet fried dough soaked in sugar syrup, similar to a glazed donut', '₹35')">₹35 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Rasgulla -->
+                        <div class="items">
+                            <img src="Graphics/Northern/rasgulla.png" loading="lazy">
+                            <p class="food-title">Rasgulla</p>
+                            <p class="food-description">Soft and spongy cottage cheese balls soaked in sugar syrup, a classic Indian dessert</p>
+                            <button class="select" onclick="addToCart('Rasgulla', 'Soft and spongy cottage cheese balls soaked in sugar syrup, a classic Indian dessert', '₹40')">₹40 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Coconut Ladoo -->
+                        <div class="items">
+                            <img src="Graphics/South/coconut-ladoo.png" loading="lazy">
+                            <p class="food-title">Coconut Ladoo</p>
+                            <p class="food-description">Sweet coconut and condensed milk balls, easy to make at home</p>
+                            <button class="select" onclick="addToCart('Coconut Ladoo', 'Sweet coconut and condensed milk balls, easy to make at home', '₹30')">₹30 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Halwa -->
+                        <div class="items">
+                            <img src="Graphics/South/halwa.png" loading="lazy">
+                            <p class="food-title">Halwa</p>
+                            <p class="food-description">Various types of halwa, such as semolina (rava) halwa or carrot halwa, are popular South Indian desserts</p>
+                            <button class="select" onclick="addToCart('Halwa', 'Various types of halwa, such as semolina (rava) halwa or carrot halwa, are popular South Indian desserts', '₹45')">₹45 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Pootharekulu -->
+                        <div class="items">
+                            <img src="Graphics/South/pootharekulu.png" loading="lazy">
+                            <p class="food-title">Pootharekulu</p>
+                            <p class="food-description">Paper-thin and delicate sweet rice and jaggery sheets, a specialty from Andhra Pradesh</p>
+                            <button class="select" onclick="addToCart('Pootharekulu', 'Paper-thin and delicate sweet rice and jaggery sheets, a specialty from Andhra Pradesh', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="cart" onclick="navigateToCart()"><i class="fa fa-archive" aria-hidden="true"></i><br> Cart </button>
+            </div>            
+        </div>
+    </body>
+</html>

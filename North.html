@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="northern">
+<head>
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(itemName, itemDescription, itemPrice) {
+            cart.push({ name: itemName, description: itemDescription, price: itemPrice });
+
+            const notification = document.querySelector('.notification');
+            notification.textContent = `Added ${itemName} to the cart!`;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+            notification.classList.remove('show');
+            }, 3000);
+
+            localStorage.setItem('cart', JSON.stringify(cart));   
+        }
+
+        function navigateToCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            location.href = 'cart.html';
+        }
+    </script>
+</head>
+<body>
+    <div class="maincard">
+        <div class="header">
+            <h2 class="heading">
+                The<br>
+                Northern<br>
+                Cuisine.<br>
+            </h2>
+        </div>
+
+        <div class="notification"></div>
+
+        <div class="food">
+            <div class="menu">
+                <a href="#specials" >Specials</a>
+                <a href="#starters" >Starters</a>
+                <a href="#main-course" >Main Course</a>
+                <a href="#desserts" >Desserts</a> 
+            </div>
+
+            <div class="contain">
+                <!-- Starters Section -->
+                <div class="menu-section" id="starters">
+                    <h1>Starters</h1>
+                    <!-- Samosa -->
+                    <div class="items">
+                        <img src="Graphics/Northern/samosa.png" loading="lazy">
+                        <p class="food-title">Samosa</p>
+                        <p class="food-description">Deep-fried pastry filled with spiced potatoes or minced meat</p>
+                        <button class="select" onclick="addToCart('Samosa', 'Deep-fried pastry filled with spiced potatoes or minced meat', '₹60')">₹60 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Pakora -->
+                    <div class="items">
+                        <img src="Graphics/Northern/pakora.png" loading="lazy">
+                        <p class="food-title">Pakora</p>
+                        <p class="food-description">Fritters made from vegetables (e.g., onion, potato, spinach) or paneer, coated in chickpea flour batter</p>
+                        <button class="select" onclick="addToCart('Pakora', 'Fritters made from vegetables (e.g., onion, potato, spinach) or paneer, coated in chickpea flour batter', '₹45')">₹45 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Aloo Tikki -->
+                    <div class="items">
+                        <img src="Graphics/Northern/aloo-tikki.png" loading="lazy">
+                        <p class="food-title">Aloo Tikki</p>
+                        <p class="food-description">Potato patties spiced with various seasonings and often served with chutneys</p>
+                        <button class="select" onclick="addToCart('Aloo Tikki', 'Potato patties spiced with various seasonings and often served with chutneys', '₹30')">₹30 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Paneer Tikka -->
+                    <div class="items">
+                        <img src="Graphics/Northern/paneer-tikka.png" loading="lazy">
+                        <p class="food-title">Paneer Tikka</p>
+                        <p class="food-description">Marinated and grilled cubes of paneer (Indian cottage cheese)</p>
+                        <button class="select" onclick="addToCart('Paneer Tikka', 'Marinated and grilled cubes of paneer (Indian cottage cheese)', '₹70')">₹70 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Tandoori Chicken -->
+                    <div class="items">
+                        <img src="Graphics/Northern/tandoori-chicken.png" loading="lazy">
+                        <p class="food-title">Tandoori Chicken</p>
+                        <p class="food-description">Chicken marinated in yogurt and spices, cooked in a tandoor (clay oven)</p>
+                        <button class="select" onclick="addToCart('Tandoori Chicken', 'Chicken marinated in yogurt and spices, cooked in a tandoor (clay oven)', '₹80')">₹80 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Tandoori Seekh Kebab -->
+                    <div class="items">
+                        <img src="Graphics/Northern/tandoori-seekh-kebab.png" loading="lazy">
+                        <p class="food-title">Tandoori Seekh Kebab</p>
+                        <p class="food-description">Minced meat (usually lamb or chicken) mixed with spices, skewered, and cooked in a tandoor</p>
+                        <button class="select" onclick="addToCart('Tandoori Seekh Kebab', 'Minced meat (usually lamb or chicken) mixed with spices, skewered, and cooked in a tandoor', '₹90')">₹90 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Chaat -->
+                    <div class="items">
+                        <img src="Graphics/Northern/chaat.png" loading="lazy">
+                        <p class="food-title">Chaat</p>
+                        <p class="food-description">A popular street food dish with a variety of ingredients like chickpeas, potatoes, yogurt, and chutneys</p>
+                        <button class="select" onclick="addToCart('Chaat', 'A popular street food dish with a variety of ingredients like chickpeas, potatoes, yogurt, and chutneys', '₹50')">₹50 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Pani Puri/Golgappa -->
+                    <div class="items">
+                        <img src="Graphics/Northern/pani-puri.png" loading="lazy">
+                        <p class="food-title">Pani Puri/Golgappa</p>
+                        <p class="food-description">Hollow, crispy balls filled with spicy tamarind water, potatoes, and chickpeas</p>
+                        <button class="select" onclick="addToCart('Pani Puri/Golgappa', 'Hollow, crispy balls filled with spicy tamarind water, potatoes, and chickpeas', '₹40')">₹40 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Dahi Puri -->
+                    <div class="items">
+                        <img src="Graphics/Northern/dahi-puri.png" loading="lazy">
+                        <p class="food-title">Dahi Puri</p>
+                        <p class="food-description">Similar to Pani Puri, but filled with yogurt, tamarind chutney, and spices</p>
+                        <button class="select" onclick="addToCart('Dahi Puri', 'Similar to Pani Puri, but filled with yogurt, tamarind chutney, and spices', '₹35')">₹35 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Hara Bhara Kabab -->
+                    <div class="items">
+                        <img src="Graphics/Northern/hara-bhara-kabab.png" loading="lazy">
+                        <p class="food-title">Hara Bhara Kabab</p>
+                        <p class="food-description">Vegetarian kababs made with spinach, peas, and spices</p>
+                        <button class="select" onclick="addToCart('Hara Bhara Kabab', 'Vegetarian kababs made with spinach, peas, and spices', '₹55')">₹55 | Add To Cart</button>
+                    </div>
+                </div>
+
+                <!-- Main Course Section -->
+                <div class="menu-section" id="main-course">
+                    <h1>Main Course</h1>
+                    <!-- Butter Chicken -->
+                    <div class="items">
+                        <img src="Graphics/Northern/butter-chicken.png" loading="lazy">
+                        <p class="food-title">Butter Chicken</p>
+                        <p class="food-description">Chicken cooked in a creamy tomato-based sauce</p>
+                        <button class="select" onclick="addToCart('Butter Chicken', 'Chicken cooked in a creamy tomato-based sauce', '₹120')">₹120 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Chicken Tikka Masala -->
+                    <div class="items">
+                        <img src="Graphics/Northern/chicken-tikka-masala.png" loading="lazy">
+                        <p class="food-title">Chicken Tikka Masala</p>
+                        <p class="food-description">Grilled chicken pieces in a rich tomato and cream-based sauce</p>
+                        <button class="select" onclick="addToCart('Chicken Tikka Masala', 'Grilled chicken pieces in a rich tomato and cream-based sauce', '₹110')">₹110 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Rogan Josh -->
+                    <div class="items">
+                        <img src="Graphics/Northern/rogan-josh.png" loading="lazy">
+                        <p class="food-title">Rogan Josh</p>
+                        <p class="food-description">A fragrant and spicy curry made with tender pieces of meat (usually lamb or goat)</p>
+                        <button class="select" onclick="addToCart('Rogan Josh', 'A fragrant and spicy curry made with tender pieces of meat (usually lamb or goat)', '₹140')">₹140 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Paneer Butter Masala -->
+                    <div class="items">
+                        <img src="Graphics/Northern/paneer-butter-masala.png" loading="lazy">
+                        <p class="food-title">Paneer Butter Masala</p>
+                        <p class="food-description">Paneer cubes in a creamy tomato-based gravy</p>
+                        <button class="select" onclick="addToCart('Paneer Butter Masala', 'Paneer cubes in a creamy tomato-based gravy', '₹100')">₹100 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Chole Bhature -->
+                    <div class="items">
+                        <img src="Graphics/Northern/chole-bature.png" loading="lazy">
+                        <p class="food-title">Chole Bhature</p>
+                        <p class="food-description">Spiced chickpea curry served with deep-fried bread (bhature)</p>
+                        <button class="select" onclick="addToCart('Chole Bhature', 'Spiced chickpea curry served with deep-fried bread (bhature)', '₹90')">₹90 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Dal Makhani -->
+                    <div class="items">
+                        <img src="Graphics/Northern/dal-makhni.png" loading="lazy">
+                        <p class="food-title">Dal Makhani</p>
+                        <p class="food-description">Creamy black lentils cooked with butter and spices</p>
+                        <button class="select" onclick="addToCart('Dal Makhani', 'Creamy black lentils cooked with butter and spices', '₹80')">₹80 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Rajma -->
+                    <div class="items">
+                        <img src="Graphics/Northern/rajma.png" loading="lazy">
+                        <p class="food-title">Rajma</p>
+                        <p class="food-description">Red kidney beans cooked in a thick tomato gravy</p>
+                        <button class="select" onclick="addToCart('Rajma', 'Red kidney beans cooked in a thick tomato gravy', '₹70')">₹70 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Aloo Gobi -->
+                    <div class="items">
+                        <img src="Graphics/Northern/aloo-gobhi.png" loading="lazy">
+                        <p class="food-title">Aloo Gobi</p>
+                        <p class="food-description">Potatoes and cauliflower cooked with spices</p>
+                        <button class="select" onclick="addToCart('Aloo Gobi', 'Potatoes and cauliflower cooked with spices', '₹60')">₹60 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Palak Paneer -->
+                    <div class="items">
+                        <img src="Graphics/Northern/palak-paneer.png" loading="lazy">
+                        <p class="food-title">Palak Paneer</p>
+                        <p class="food-description">Cottage cheese (paneer) cooked in a creamy spinach gravy</p>
+                        <button class="select" onclick="addToCart('Palak Paneer', 'Cottage cheese (paneer) cooked in a creamy spinach gravy', '₹90')">₹90 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Mutton Biryani -->
+                    <div class="items">
+                        <img src="Graphics/Northern/mutton-biryani.png" loading="lazy">
+                        <p class="food-title">Mutton Biryani</p>
+                        <p class="food-description">Fragrant rice cooked with spiced mutton and aromatic spices</p>
+                        <button class="select" onclick="addToCart('Mutton Biryani', 'Fragrant rice cooked with spiced mutton and aromatic spices', '₹260')">₹260 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <div class="items">
+                        <img src="Graphics/Northern/chicken-biryani.png" loading="lazy">
+                        <p class="food-title">Chicken Biryani</p>
+                        <p class="food-description">Fragrant rice cooked with spiced chicken and aromatic spices</p>
+                        <button class="select" onclick="addToCart('Chicken Biryani', 'Fragrant rice cooked with spiced mutton and aromatic spices', '₹170')">₹170 | Add To Cart</button>
+                    </div>
+                </div>
+
+                <!-- Desserts Section -->
+                <div class="menu-section" id="desserts">
+                    <h1>Desserts</h1>
+                    <!-- Gulab Jamun -->
+                    <div class="items">
+                        <img src="Graphics/Northern/gulab-jamun.png" loading="lazy">
+                        <p class="food-title">Gulab Jamun</p>
+                        <p class="food-description">Deep-fried milk-based dumplings soaked in sugar syrup</p>
+                        <button class="select" onclick="addToCart('Gulab Jamun', 'Deep-fried milk-based dumplings soaked in sugar syrup', '₹40')">₹40 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Rasgulla -->
+                    <div class="items">
+                        <img src="Graphics/Northern/rasgulla.png" loading="lazy">
+                        <p class="food-title">Rasgulla</p>
+                        <p class="food-description">Spongy cottage cheese balls in sugar syrup</p>
+                        <button class="select" onclick="addToCart('Rasgulla', 'Spongy cottage cheese balls in sugar syrup', '₹35')">₹35 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Kheer -->
+                    <div class="items">
+                        <img src="Graphics/Northern/kheer.png" loading="lazy">
+                        <p class="food-title">Kheer</p>
+                        <p class="food-description">A creamy rice pudding flavored with cardamom and garnished with nuts</p>
+                        <button class="select" onclick="addToCart('Kheer', 'A creamy rice pudding flavored with cardamom and garnished with nuts', '₹50')">₹50 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Jalebi -->
+                    <div class="items">
+                        <img src="Graphics/Northern/jalebi.png" loading="lazy">
+                        <p class="food-title">Jalebi</p>
+                        <p class="food-description">Deep-fried swirls of batter soaked in sugar syrup</p>
+                        <button class="select" onclick="addToCart('Jalebi', 'Deep-fried swirls of batter soaked in sugar syrup', '₹30')">₹30 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Gajar ka Halwa -->
+                    <div class="items">
+                        <img src="Graphics/Northern/gajar-ka-halwa.png" loading="lazy">
+                        <p class="food-title">Gajar ka Halwa</p>
+                        <p class="food-description">Sweet carrot pudding cooked with ghee, milk, and sugar</p>
+                        <button class="select" onclick="addToCart('Gajar ka Halwa', 'Sweet carrot pudding cooked with ghee, milk, and sugar', '₹60')">₹60 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Rasmalai -->
+                    <div class="items">
+                        <img src="Graphics/Northern/rasmalai.png" loading="lazy">
+                        <p class="food-title">Rasmalai</p>
+                        <p class="food-description">Spongy cottage cheese patties served in a creamy saffron-flavored milk</p>
+                        <button class="select" onclick="addToCart('Rasmalai', 'Spongy cottage cheese patties served in a creamy saffron-flavored milk', '₹50')">₹50 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Malai Kulfi -->
+                    <div class="items">
+                        <img src="Graphics/Northern/malai-kulfi.png" loading="lazy">
+                        <p class="food-title">Malai Kulfi</p>
+                        <p class="food-description">Creamy Indian ice cream with flavors like pistachio, saffron, and cardamom</p>
+                        <button class="select" onclick="addToCart('Malai Kulfi', 'Creamy Indian ice cream with flavors like pistachio, saffron, and cardamom', '₹40')">₹40 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Shahi Tukda -->
+                    <div class="items">
+                        <img src="Graphics/Northern/shahi-tukda.png" loading="lazy">
+                        <p class="food-title">Shahi Tukda</p>
+                        <p class="food-description">Fried bread slices soaked in sweetened milk and garnished with nuts</p>
+                        <button class="select" onclick="addToCart('Shahi Tukda', 'Fried bread slices soaked in sweetened milk and garnished with nuts', '₹45')">₹45 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Phirni -->
+                    <div class="items">
+                        <img src="Graphics/Northern/phirni.png" loading="lazy">
+                        <p class="food-title">Phirni</p>
+                        <p class="food-description">A rice pudding made with ground rice, milk, and sugar, flavored with cardamom and saffron</p>
+                        <button class="select" onclick="addToCart('Phirni', 'A rice pudding made with ground rice, milk, and sugar, flavored with cardamom and saffron', '₹40')">₹40 | Add To Cart</button>
+                    </div>
+                    <hr>
+                    <!-- Ghevar -->
+                    <div class="items">
+                        <img src="Graphics/Northern/ghevar.png" loading="lazy">
+                        <p class="food-title">Ghevar</p>
+                        <p class="food-description">A disc-shaped sweet dessert made from flour and soaked in sugar syrup</p>
+                        <button class="select" onclick="addToCart('Ghevar', 'A disc-shaped sweet dessert made from flour and soaked in sugar syrup', '₹55')">₹55 | Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+            <button class="cart" onclick="navigateToCart()"><i class="fa fa-archive" aria-hidden="true"></i><br> Cart </button>
+        </div>
+    </div>
+</body>
+</html>

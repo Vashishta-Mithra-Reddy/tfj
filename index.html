@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            TFJ | The Food Junction
+        </title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="Graphics/The Food Junction_light.ico">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Arvo:wght@400&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+        
+    </head>
+    <body>
+        <script>
+            function redir()
+            {
+                document.getElementById("mainframe").src="Login.html";
+            }
+            function redir2(){
+                location.href="Menu.html";
+            }
+        </script>
+
+        <header class="header">
+            
+            <h2 class="logo" onclick="redir2()">The Food Junction</h2>
+            <nav class="navigation">
+                <a href="Home.html"  target="mainframe">Home</a>
+                <a href="Order.html" target="mainframe">Order Food</a>
+                <a href="About.html" target="mainframe">About</a>
+                <button class="login-btn"  onclick="redir()">Login</button> 
+            </nav>
+       </header>
+       <iframe id="mainframe" name="mainframe" src="Home.html"></iframe>
+    </body>
+</html>
+

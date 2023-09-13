@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="maincard">
+        <div class="cart-container">
+            <h1>Your Cart</h1>
+            <div class="cart-items">
+
+            </div>
+            <p class="total-amount">Total Amount: ₹<span id="totalAmount">0.00</span> Rs</p>
+            <button class="clear-cart-button" onclick="clearCart()">Clear Cart</button>
+            
+            <button class="clear-cart-button" onclick="payment()">Pay and Continue</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartList = document.querySelector('.cart-items');
+            const totalAmountElement = document.getElementById('totalAmount');
+            let totalAmount = 0;
+
+            if (cartItems.length > 0) {
+                cartItems.forEach(item => {
+                    const cartItemContainer = document.createElement('div');
+                    cartItemContainer.className = 'item';
+                    
+
+                    const itemNameForImage = item.name.replace(/\s/g, '-');
+                    const img = document.createElement('img');
+                    img.src = `Graphics/All/${itemNameForImage}.png`;
+                    cartItemContainer.appendChild(img);
+
+                    const title = document.createElement('p');
+                    title.className = 'food-title';
+                    title.textContent = item.name;
+                    cartItemContainer.appendChild(title);
+
+                    const description = document.createElement('p');
+                    description.className = 'food-description';
+                    description.textContent = item.description;
+                    cartItemContainer.appendChild(description);
+
+                    const price = document.createElement('p');
+                    price.className = 'food-price';
+                    price.textContent = `${item.price}`;
+                    cartItemContainer.appendChild(price);
+
+                    cartList.appendChild(cartItemContainer);
+
+                    
+                    const line = document.createElement('hr');
+                    cartList.appendChild(line);
+
+
+                    const numericPrice = parseFloat(item.price.slice(1));
+                    totalAmount += numericPrice; 
+                });
+
+                totalAmountElement.textContent = totalAmount.toFixed(2);
+            } else {
+                cartList.textContent = 'Your cart is empty.';
+            }
+        });
+    </script>
+
+    <script>
+        function clearCart() {
+            localStorage.removeItem('cart');
+            const cartList = document.querySelector('.cart-items');
+            const totalAmountElement = document.getElementById('totalAmount');
+            cartList.innerHTML = '';
+            totalAmountElement.textContent = '0.00';
+        }
+    </script>
+</body>
+</html>

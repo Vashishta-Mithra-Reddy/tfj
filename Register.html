@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Registration Page</title>
+    </head>
+    <body>
+        <div class="card">
+            <form name="f">
+                <h2 class="head">Register</h2>
+                <label>Name</label>
+                <input class="input" placeholder="Enter your name" type="text" id="name">
+                <label>Email</label>
+                <input class="input" placeholder="Enter your Email" type="email" name="email" id="email">
+                <label>Password</label>
+                <input class="input" placeholder="Enter a password" type="password" id="pass">
+                <label>Re Enter Password</label>
+                <input class="input" placeholder="Re enter the above password" type="password" id="rpass">
+                <input type="submit" onclick="validate()" value="Submit">
+                <a href="Login.html">Click here to Login Instead</a>
+            </form>
+        </div>
+    <script>
+        function validate()
+        {
+            var name=f.name.value;
+            var email=f.email.value;
+            var pass=f.pass.value;
+            var repass=f.rpass.value;
+
+
+            if(name.length==0||email.length==0||pass.length==0||repass.length==0||age.length==0)
+            {
+                alert("Sections shouldn't be left empty");
+            }
+            else
+            {
+                if(pass!=repass)
+                {
+                    alert("Passwords do no match");
+                }
+                else if(pass.length<8)
+                {
+                    alert("Password shouldn't be less than 8 characters");
+                }
+                
+
+            }
+        }
+    </script>
+    </body>
+</html>

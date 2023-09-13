@@ -1,0 +1,90 @@
+@keyframes fade-in-z {
+  from {
+    opacity: 0;
+    transform: translateZ(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    animation: fade-in-z 4s ease-in-out;
+  
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  label {
+    margin-left: 10px;
+    margin-right: 0px;
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc ;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    margin-left: 0px;
+  }
+  
+  input[type="submit"]
+  {
+    width: 40%;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    cursor:pointer;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    align-content: center;
+
+  }
+
+  input[type="submit"]:hover
+  {
+    background-color: grey;
+  }
+  
+  button {
+    width: 40%;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    cursor:pointer;
+    margin-top: 12px;
+    align-content: center;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }

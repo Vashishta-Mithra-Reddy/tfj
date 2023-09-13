@@ -1,0 +1,88 @@
+@keyframes fade-in-z {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap");
+
+*{
+    padding: none;
+    margin: none;
+    box-sizing: border-box;
+}
+
+body{
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    background-image: url("Graphics/Veggies.png"); 
+    
+}
+.card{
+width:fit-content;
+padding:17px 47px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+animation: fade-in-z 700ms ease-in-out;
+background:white;
+}
+
+.head{
+    text-align: center;
+    margin-bottom: 25px;
+    background: white;
+    padding: 8px;
+    font-size: 28px;
+    font-family: "Open Sans";
+}
+
+label{
+    display: block;
+}
+
+.input{
+    margin: 8px;
+    padding:8px;
+    justify-content: end;
+    display: block;
+    width: 220px;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="submit"]{
+    margin: 8px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: white;
+    background: black;
+    cursor: pointer;
+    display: block;
+    width: 220px;
+}
+
+input[type="submit"]:hover{
+    color: black;
+    background: white;
+}
+
+a{
+    text-decoration: none;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+

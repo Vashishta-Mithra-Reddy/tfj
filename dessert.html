@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="order.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+        <script>
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            function addToCart(itemName, itemDescription, itemPrice) {
+                cart.push({ name: itemName, description: itemDescription, price: itemPrice });
+    
+                const notification = document.querySelector('.notification');
+                notification.textContent = `Added ${itemName} to the cart!`;
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                notification.classList.remove('show');
+                }, 3000);
+    
+                localStorage.setItem('cart', JSON.stringify(cart));   
+            }
+    
+            function navigateToCart() {
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.href = 'cart.html';
+            }
+        </script>
+    
+    </head>
+    
+    <body>
+        <div class="maincard">
+            <div class="header">
+            <h2 class="heading">
+                Sweets,<br>
+                Desserts<br>
+                &<br>
+                Such.<br>
+            </h2>
+            </div>
+            <div class="notification"></div>
+
+            <div class="food">
+                <div class="menu">
+                    <a href="#specials">Specials</a>
+                    <a href="#drinks">Drinks</a>
+                    <a href="#sweets">Sweets</a>
+                    <a href="#icecreams">Ice Creams</a>
+                </div>
+            
+                <div class="contain">
+                    <!-- Specials Section -->
+                    <div class="menu-section" id="specials">
+                        <h1>Specials</h1>
+                        <!-- Gajar Halwa -->
+                        <div class="items">
+                            <img src="Graphics/Northern/gajar-ka-halwa.png" loading="lazy">
+                            <p class="food-title">Gajar Halwa</p>
+                            <p class="food-description">Carrot-based sweet dessert.</p>
+                            <button class="select" onclick="addToCart('Gajar Halwa', 'Carrot-based sweet dessert', '₹60')">₹60 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Basundi -->
+                        <div class="items">
+                            <img src="Graphics/Specials/basundi.png" loading="lazy">
+                            <p class="food-title">Basundi</p>
+                            <p class="food-description">Condensed milk dessert with cardamom.</p>
+                            <button class="select" onclick="addToCart('Basundi', 'Condensed milk dessert with cardamom', '₹70')">₹70 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other special items here -->
+                        <!-- Malpua -->
+                        <div class="items">
+                            <img src="Graphics/Specials/malpua.png" loading="lazy">
+                            <p class="food-title">Malpua</p>
+                            <p class="food-description">Deep-fried pancakes in sugar syrup.</p>
+                            <button class="select" onclick="addToCart('Malpua', 'Deep-fried pancakes in sugar syrup', '₹55')">₹55 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Fruit Custard -->
+                        <div class="items">
+                            <img src="Graphics/Specials/fruit-custard.jpg" loading="lazy">
+                            <p class="food-title">Fruit Custard</p>
+                            <p class="food-description">Dessert with mixed fruits and custard.</p>
+                            <button class="select" onclick="addToCart('Fruit Custard', 'Dessert with mixed fruits and custard', '₹65')">₹65 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other special items here -->
+                        <!-- Shahi Tukda -->
+                        <div class="items">
+                            <img src="Graphics/Northern/shahi-tukda.png" loading="lazy">
+                            <p class="food-title">Shahi Tukda</p>
+                            <p class="food-description">Fried bread in saffron milk.</p>
+                            <button class="select" onclick="addToCart('Shahi Tukda', 'Fried bread in saffron milk', '₹75')">₹75 | Add To Cart</button>
+                        </div>
+                    </div>
+            
+                    <!-- Drinks Section -->
+                    <div class="menu-section" id="drinks">
+                        <h1>Drinks</h1>
+                        <!-- Masala Chai -->
+                        <div class="items">
+                            <img src="Graphics/Drinks/masala-chai.png" loading="lazy">
+                            <p class="food-title">Masala Chai</p>
+                            <p class="food-description">Spiced tea with tea leaves, milk, and spices.</p>
+                            <button class="select" onclick="addToCart('Masala Chai', 'Spiced tea with tea leaves, milk, and spices', '₹40')">₹40 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Badam Milk -->
+                        <div class="items">
+                            <img src="Graphics/Drinks/badam-milk.png" loading="lazy">
+                            <p class="food-title">Badam Milk</p>
+                            <p class="food-description">Almond milk with cardamom and saffron.</p>
+                            <button class="select" onclick="addToCart('Badam Milk', 'Almond milk with cardamom and saffron', '₹45')">₹45 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other drink items here -->
+                        <!-- Lassi -->
+                        <div class="items">
+                            <img src="Graphics/Drinks/lassi.png" loading="lazy">
+                            <p class="food-title">Lassi</p>
+                            <p class="food-description">Yogurt-based drink in various flavors.</p>
+                            <button class="select" onclick="addToCart('Lassi', 'Yogurt-based drink in various flavors', '₹35')">₹35 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Rose Milk -->
+                        <div class="items">
+                            <img src="Graphics/Drinks/rose-milk.png" loading="lazy">
+                            <p class="food-title">Rose Milk</p>
+                            <p class="food-description">Rose-flavored milk.</p>
+                            <button class="select" onclick="addToCart('Rose Milk', 'Rose-flavored milk', '₹40')">₹40 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other drink items here -->
+                        <!-- Saffron Milk -->
+                        <div class="items">
+                            <img src="Graphics/Drinks/saffron-milk.png" loading="lazy">
+                            <p class="food-title">Saffron Milk</p>
+                            <p class="food-description">Warm milk infused with saffron.</p>
+                            <button class="select" onclick="addToCart('Saffron Milk', 'Warm milk infused with saffron', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Thandai -->
+                        <div class="items">
+                            <img src="Graphics/Drinks/thandai.png" loading="lazy">
+                            <p class="food-title">Thandai</p>
+                            <p class="food-description">Holi drink made with milk, nuts, and spices.</p>
+                            <button class="select" onclick="addToCart('Thandai', 'Holi drink made with milk, nuts, and spices', '₹60')">₹60 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other drink items here -->
+                        <!-- Aam Panna -->
+                        <div class="items">
+                            <img src="Graphics/Drinks/aam-panna.png" loading="lazy">
+                            <p class="food-title">Aam Panna</p>
+                            <p class="food-description">Cooling drink from green mangoes.</p>
+                            <button class="select" onclick="addToCart('Aam Panna', 'Cooling drink from green mangoes', '₹45')">₹45 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Sugarcane Juice -->
+                        <div class="items">
+                            <img src="Graphics/Drinks/sugarcane-juice.png" loading="lazy">
+                            <p class="food-title">Sugarcane Juice</p>
+                            <p class="food-description">Freshly squeezed sugarcane juice.</p>
+                            <button class="select" onclick="addToCart('Sugarcane Juice', 'Freshly squeezed sugarcane juice', '₹30')">₹30 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other drink items here -->
+                        <!-- Nimbu Pani -->
+                        <div class="items">
+                            <img src="Graphics/Drinks/nimbu-pani.png" loading="lazy">
+                            <p class="food-title">Nimbu Pani</p>
+                            <p class="food-description">Indian lemonade with lemon, sugar, and salt.</p>
+                            <button class="select" onclick="addToCart('Nimbu Pani', 'Indian lemonade with lemon, sugar, and salt', '₹25')">₹25 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Bael Sherbet -->
+                        <div class="items">
+                            <img src="Graphics/Drinks/bael-sherbet.png" loading="lazy">
+                            <p class="food-title">Bael Sherbet</p>
+                            <p class="food-description">Summer cooler made from bael fruit pulp.</p>
+                            <button class="select" onclick="addToCart('Bael Sherbet', 'Summer cooler made from bael fruit pulp', '₹40')">₹40 | Add To Cart</button>
+                        </div>
+                        <!-- Continue adding other drink items here -->
+                    </div>
+            
+                    <!-- Sweets Section -->
+                    <div class="menu-section" id="sweets">
+                        <h1>Sweets</h1>
+                        <!-- Gulab Jamun -->
+                        <div class="items">
+                            <img src="Graphics/Northern/gulab-jamun.png" loading="lazy">
+                            <p class="food-title">Gulab Jamun</p>
+                            <p class="food-description">Fried milk dumplings in sugar syrup.</p>
+                            <button class="select" onclick="addToCart('Gulab Jamun', 'Fried milk dumplings in sugar syrup', '₹55')">₹55 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Jalebi -->
+                        <div class="items">
+                            <img src="Graphics/Northern/jalebi.png" loading="lazy">
+                            <p class="food-title">Jalebi</p>
+                            <p class="food-description">Fried pretzel-shaped dough soaked in syrup.</p>
+                            <button class="select" onclick="addToCart('Jalebi', 'Fried pretzel-shaped dough soaked in syrup', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Rasgulla -->
+                        <div class="items">
+                            <img src="Graphics/Northern/rasgulla.png" loading="lazy">
+                            <p class="food-title">Rasgulla</p>
+                            <p class="food-description">Soft cheese balls in sugar syrup.</p>
+                            <button class="select" onclick="addToCart('Rasgulla', 'Soft cheese balls in sugar syrup', '₹60')">₹60 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Barfi -->
+                        <div class="items">
+                            <img src="Graphics/Sweets/barfi.png" loading="lazy">
+                            <p class="food-title">Barfi</p>
+                            <p class="food-description">Sweet confectionery made with condensed milk.</p>
+                            <button class="select" onclick="addToCart('Barfi', 'Sweet confectionery made with condensed milk', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Halwa -->
+                        <div class="items">
+                            <img src="Graphics/South/halwa.png" loading="lazy">
+                            <p class="food-title">Halwa</p>
+                            <p class="food-description">Sweet pudding with various ingredients.</p>
+                            <button class="select" onclick="addToCart('Halwa', 'Sweet pudding with various ingredients', '₹45')">₹45 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Rasmalai -->
+                        <div class="items">
+                            <img src="Graphics/Northern/rasmalai.png" loading="lazy">
+                            <p class="food-title">Rasmalai</p>
+                            <p class="food-description">Cheese dumplings in saffron milk.</p>
+                            <button class="select" onclick="addToCart('Rasmalai', 'Cheese dumplings in saffron milk', '₹70')">₹70 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Peda -->
+                        <div class="items">
+                            <img src="Graphics/Sweets/peda.png" loading="lazy">
+                            <p class="food-title">Peda</p>
+                            <p class="food-description">Small milk fudge with cardamom.</p>
+                            <button class="select" onclick="addToCart('Peda', 'Small milk fudge with cardamom', '₹40')">₹40 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Balushahi -->
+                        <div class="items">
+                            <img src="Graphics/Sweets/balushahi.png" loading="lazy">
+                            <p class="food-title">Balushahi</p>
+                            <p class="food-description">Fried pastry in sugar syrup.</p>
+                            <button class="select" onclick="addToCart('Balushahi', 'Fried pastry in sugar syrup', '₹45')">₹45 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Soan Papdi -->
+                        <div class="items">
+                            <img src="Graphics/Sweets/sohan-papdi.png" loading="lazy">
+                            <p class="food-title">Soan Papdi</p>
+                            <p class="food-description">Flaky sweet made with gram flour.</p>
+                            <button class="select" onclick="addToCart('Soan Papdi', 'Flaky sweet made with gram flour', '₹55')">₹55 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Besan Ladoo -->
+                        <div class="items">
+                            <img src="Graphics/Sweets/besan-ladoo.png" loading="lazy">
+                            <p class="food-title">Besan Ladoo</p>
+                            <p class="food-description">Gram flour balls with ghee and cardamom.</p>
+                            <button class="select" onclick="addToCart('Besan Ladoo', 'Gram flour balls with ghee and cardamom', '₹40')">₹40 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Mysore Pak -->
+                        <div class="items">
+                            <img src="Graphics/South/mysore-pak.png" loading="lazy">
+                            <p class="food-title">Mysore Pak</p>
+                            <p class="food-description">Buttery gram flour sweet.</p>
+                            <button class="select" onclick="addToCart('Mysore Pak', 'Buttery gram flour sweet', '₹60')">₹60 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Coconut Ladoo -->
+                        <div class="items">
+                            <img src="Graphics/South/coconut-ladoo.png" loading="lazy">
+                            <p class="food-title">Coconut Ladoo</p>
+                            <p class="food-description">Coconut balls with condensed milk.</p>
+                            <button class="select" onclick="addToCart('Coconut Ladoo', 'Coconut balls with condensed milk', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Pongal -->
+                        <div class="items">
+                            <img src="Graphics/South/pongal.png" loading="lazy">
+                            <p class="food-title">Pongal</p>
+                            <p class="food-description">Sweet rice dish with jaggery.</p>
+                            <button class="select" onclick="addToCart('Pongal', 'Sweet rice dish with jaggery', '₹45')">₹45 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Adhirasam -->
+                        <div class="items">
+                            <img src="Graphics/Sweets/adhirasam.png" loading="lazy">
+                            <p class="food-title">Adhirasam</p>
+                            <p class="food-description">Deep-fried rice flour doughnuts.</p>
+                            <button class="select" onclick="addToCart('Adhirasam', 'Deep-fried rice flour doughnuts', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Rava Kesari -->
+                        <div class="items">
+                            <img src="Graphics/Sweets/rava-kesari.png" loading="lazy">
+                            <p class="food-title">Rava Kesari</p>
+                            <p class="food-description">Semolina-based sweet dish.</p>
+                            <button class="select" onclick="addToCart('Rava Kesari', 'Semolina-based sweet dish', '₹40')">₹40 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Mango Payasam -->
+                        <div class="items">
+                            <img src="Graphics/Sweets/mango-payasam.png" loading="lazy">
+                            <p class="food-title">Mango Payasam</p>
+                            <p class="food-description">Mango rice pudding.</p>
+                            <button class="select" onclick="addToCart('Mango Payasam', 'Mango rice pudding', '₹60')">₹60 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Obbattu -->
+                        <div class="items">
+                            <img src="Graphics/Sweets/obattu.png" loading="lazy">
+                            <p class="food-title">Obbattu</p>
+                            <p class="food-description">Stuffed flatbreads with sweet fillings.</p>
+                            <button class="select" onclick="addToCart('Obbattu', 'Stuffed flatbreads with sweet fillings', '₹50')">₹50 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other sweet items here -->
+                        <!-- Elaneer Payasam -->
+                        <div class="items">
+                            <img src="Graphics/Sweets/elaneer-payasam.png" loading="lazy">
+                            <p class="food-title">Elaneer Payasam</p>
+                            <p class="food-description">Coconut water pudding.</p>
+                            <button class="select" onclick="addToCart('Elaneer Payasam', 'Coconut water pudding', '₹45')">₹45 | Add To Cart</button>
+                        </div>
+
+                    </div>
+            
+                    <!-- Ice Creams Section -->
+                    <div class="menu-section" id="icecreams">
+                        <h1>Ice Creams</h1>
+                        <!-- Kulfi -->
+                        <div class="items">
+                            <img src="Graphics/IceCreams/kulfi.png" loading="lazy">
+                            <p class="food-title">Kulfi</p>
+                            <p class="food-description">Traditional Indian milk ice cream.</p>
+                            <button class="select" onclick="addToCart('Kulfi', 'Traditional Indian milk ice cream', '₹60')">₹60 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Kesar Pista Ice Cream -->
+                        <div class="items">
+                            <img src="Graphics/IceCreams/kesar-pista-ice-cream.png" loading="lazy">
+                            <p class="food-title">Kesar Pista Ice Cream</p>
+                            <p class="food-description">Saffron and pistachio ice cream.</p>
+                            <button class="select" onclick="addToCart('Kesar Pista Ice Cream', 'Saffron and pistachio ice cream', '₹70')">₹70 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Thandai Ice Cream -->
+                        <div class="items">
+                            <img src="Graphics/IceCreams/thandai-ice-cream.png" loading="lazy">
+                            <p class="food-title">Thandai Ice Cream</p>
+                            <p class="food-description">Ice cream infused with thandai.</p>
+                            <button class="select" onclick="addToCart('Thandai Ice Cream', 'Ice cream infused with thandai', '₹75')">₹75 | Add To Cart</button>
+                        </div>
+                        <hr>
+                        <!-- Continue adding other ice cream items here -->
+                        <!-- Rajbhog Ice Cream -->
+                        <div class="items">
+                            <img src="Graphics/IceCreams/rajbhog-ice-cream.png" loading="lazy">
+                            <p class="food-title">Rajbhog Ice Cream</p>
+                            <p class="food-description">Cardamom and saffron ice cream.</p>
+                            <button class="select" onclick="addToCart('Rajbhog Ice Cream', 'Cardamom and saffron ice cream', '₹80')">₹80 | Add To Cart</button>
+                        </div>
+                        <!-- Continue adding other ice cream items here -->
+                    </div>
+                </div>
+                <button class="cart" onclick="navigateToCart()"><i class="fa fa-archive" aria-hidden="true"></i><br> Cart </button>
+            </div>
+                        
+        </div>
+    </body>
+</html>

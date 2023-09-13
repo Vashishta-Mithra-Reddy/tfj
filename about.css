@@ -1,0 +1,80 @@
+@keyframes transin {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }    
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d4d4d4; 
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a9a9a9;
+  }
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    animation: transin 0.75s ease-in-out;
+    overflow-x: hidden;
+    width: calc(100%-30);
+    min-height: 100vh;
+    height: fit-content;
+    /* margin: 0px 30px 20px 30px; */
+    padding: 50px 60px 50px 60px;
+    background: white;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+p,h2{
+    margin-top: 20px;
+}
+h1{
+    margin-top: 100px;
+    margin-bottom: 25px;
+}
+
+
+.headerx{
+    text-align: center;
+    margin-bottom: 50px;
+    color: white;
+}
+.c1{
+    background-color: #7D1935;
+    height: 30vh;
+    width: 100vw;
+    position: absolute;
+    top:0px;
+    left:0px;
+    z-index: -1;
+}
+.headerx h1{
+    font-weight: 800;
+    font-family: 'League Spartan', sans-serif;
+    line-height: 1;
+    font-size: 44px;
+    margin-top: 20px;
+}
+.headerx p{
+    font-size: 20px;
+}
+
+.contact{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
