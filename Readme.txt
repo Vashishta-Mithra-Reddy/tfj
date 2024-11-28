@@ -16,5 +16,5 @@ The Food Junction is a simple, elegant restaurant webpage built using **HTML**, 
 ## Installation
 To view and interact with the project on your local machine:
 1. Clone the repository:
-   ```bash
    git clone https://github.com/vashishta-mithra-reddy/tfj.git
+2. Navigate to the directory and open the index.html file to access 
